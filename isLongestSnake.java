@@ -122,40 +122,38 @@ public class isLongestSnake {
 		// Feel free to change and put whatever you want in it for testing
 		// or whatever else you want.
 		int matrix[][]={{99, 1, 2, 3, 5, 3},
-						{7, 6, 5, 0, 5, 6},
-						{8, 5, 4, 1, 5, 3},
-						{8, 6, 3, 2, 5, 3},
-						{8, 7, 8, 9, 10, 11},
-						{9, 8, 11, 11, 13, 12}};
+				{7, 6, 5, 0, 5, 6},
+				{8, 5, 4, 1, 5, 3},
+				{8, 6, 3, 2, 5, 3},
+				{8, 7, 8, 9, 10, 11},
+				{9, 8, 11, 11, 13, 12}};
 		
 		int the_longest_snake = 0;
 		// Length of N x N 
 		int n = 6;
-		
 		int[][] randomMatrix = new int [n][n];
 
 		// Create a randomMatrix from 0-10
-	    Random randomM = new Random(); 
-	    randomM.setSeed(System.currentTimeMillis()); 
-	    for (int i = 0; i < n; ++i) {     
-	        for (int j = 0; j < n; ++j) {
-	            int rand = randomM.nextInt() % 11; 
-	            randomMatrix[i][j] = Math.abs(rand);
-	        }
-	    }
-        for (int i = 0; i < n; ++i) {  
-            System.out.print("[");   
-            for (int j = 0; j < n; ++j) {
-                System.out.print(randomMatrix[i][j]);
-                if (j != (n - 1)) {
-                    System.out.print(", ");
-                }
-            } 
-            System.out.println("]");
-        }
+		Random randomM = new Random(); 
+		randomM.setSeed(System.currentTimeMillis());
 		
-        
-        // Testing the algorithm
+		for (int i = 0; i < n; ++i) {
+			for (int j = 0; j < n; ++j) {
+				int rand = randomM.nextInt() % 11; 
+				randomMatrix[i][j] = Math.abs(rand);
+			}
+		}
+		for (int i = 0; i < n; ++i) {  
+			System.out.print("[");   
+			for (int j = 0; j < n; ++j) {
+				System.out.print(randomMatrix[i][j]);
+				if (j != (n - 1)) {
+					System.out.print(", ");
+				}
+			} 
+			System.out.println("]");
+		}
+		// Testing the algorithm
 		the_longest_snake = longestSnake(randomMatrix, n);
 		// Finally printing the value.
 		System.out.println("The longest snake in the matrix is: " + the_longest_snake);
